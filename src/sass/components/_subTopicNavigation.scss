@@ -1,0 +1,30 @@
+.subTopic-navigation {
+  background-color: get-color('azure',1);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2em;
+  margin-bottom: 2em;
+  li {
+    padding: 1em 4em;
+    text-align: center;
+    position: relative;
+    p {
+      text-align: center;
+      font-family: $font-headings;
+      margin-bottom: 0;
+    }
+    img {
+      max-height: 3em;
+    }
+    &.active:after {
+      font-family: 'fontawesome';
+      display: block;
+      content: '\f0d7';
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -15px);
+      color: get-color('azure', 1);
+      font-size: 36pt;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@import '../global_variables';
+
+$px-scale: (
+        small: 12,
+        normal: 16,
+        large: 24,
+        x-large: 36,
+        xx-large: 48,
+        xxx-large: 64
+);
+
+$em-scale: (
+        small: map-get($px-scale, 'small') / $base-font-size, // 12px / 16px = 0.75em
+        normal: map-get($px-scale, 'normal') / $base-font-size, // 16px / 16px = 1
+        large: map-get($px-scale, 'large') / $base-font-size, // 24px / 16px = 1.5em
+        x-large: map-get($px-scale, 'x-large') / $base-font-size, // 36px / 16px = 2.25em
+        xx-large: map-get($px-scale, 'xx-large') / $base-font-size, // 48px / 16px = 3em
+        xxx-large: map-get($px-scale, 'xxx-large') / $base-font-size // 64px / 16px = 4em
+);
+
+$type-scale: (
+        small: map-get($em-scale, 'small') + em,
+        normal: map-get($em-scale, 'normal') + em,
+        large: map-get($em-scale, 'large') + em,
+        x-large: map-get($em-scale, 'x-large') + em,
+        xx-large: map-get($em-scale, 'xx-large') + em,
+        xxx-large: map-get($em-scale, 'xxx-large') + em
+);
+
+@function type-scale($level: 'normal') {
+  @return map-get($type-scale, $level);
+}
+
+$line-height-scale: (
+        small: $base-line-height / map-get($px-scale, 'small') + em, // 24 / 12 = 0.5em
+        normal: $base-line-height / map-get($px-scale, 'normal') + em, // 24 / 16 = 1.5em
+        large: $base-line-height / map-get($px-scale, 'large') + em, // 24 / 24 = 1em
+        x-large: $base-line-height * 2 / map-get($px-scale, 'x-large') + em, // 48 / 36 = 1.33333333em
+        xx-large: $base-line-height * 2 / map-get($px-scale, 'xx-large') + em, // 48 / 48 = 1em
+        xxx-large: $base-line-height * 3 / map-get($px-scale, 'xxx-large') + em // 72 / 64 1.125em
+);
+
+@function line-height-scale($level: normal) {
+  @return map-get($line-height-scale, $level);
+}
+
+$margin-height-scale: (
+        small: $base-line-height / map-get($px-scale, 'small') + em, // 24 / 9.889
+        normal: $base-line-height / map-get($px-scale, 'normal') + em, // 24 / 16 = 1.5em
+        large: $base-line-height / map-get($px-scale, 'large') + em, // 24 / 24 = 1em
+        x-large: $base-line-height / map-get($px-scale, 'x-large') + em, // 24 / 36 = 0.66666666em
+        xx-large: $base-line-height / map-get($px-scale, 'xx-large') + em, // 24 / 48 = 0.5em
+        xxx-large: $base-line-height * 2 / map-get($px-scale, 'xxx-large') + em, // 48 / 64
+);
+
+@function margin-height($level: normal) {
+  @return map-get($margin-height-scale, $level);
+}
+
+@mixin type-setting($level: normal) {
+  font-size: type-scale($level);
+  line-height: line-height-scale($level);
+  margin-bottom: margin-height($level);
+}

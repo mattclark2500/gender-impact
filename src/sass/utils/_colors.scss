@@ -1,0 +1,39 @@
+$color-map: (
+        'grey': (
+                0:  #f0f1f2,
+                1:  #e6e7e8,
+                2:  #a6a7a8,
+                3:  #676768,
+                4:  #4b4b4b,
+                5:  #272727
+        ),
+        'blue': (
+                0: #bfd4ea,
+                1: #80aad4,
+                2: #4080bf,
+                3: #0055aa
+        ),
+        'azure': (
+                0: #bfe7f4,
+                1: #80cfea,
+                2: #40b6df,
+                3: #009ed4
+        ),
+        'orange': (
+                0:  #f9d3c3,
+                1:  #f3a787,
+                2:  #ee7a4b,
+                3:  #e84e0f
+        ),
+        'green': (
+                0:  #bfe5cf,
+                1:  #80cba0,
+                2:  #40b070,
+                3:  #009640
+        )
+);
+
+@function get-color($series: 'grey', $level: 3, $opacity: 1) {
+        $hex-val: map-get(map-get($color-map, $series), $level);
+        @return rgba($hex-val, $opacity);
+}

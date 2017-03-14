@@ -1,0 +1,112 @@
+.slide-content-container {
+  padding: 0 1em;
+  h3 {
+    text-align: center;
+  }
+  p {
+    text-align: justify;
+  }
+}
+
+.lesson-learnt-content {
+  display: flex;
+  .first {
+    flex: 1;
+    text-align: center;
+    img {
+      max-width: 10em;
+    }
+  }
+  .second {
+    padding: 0 0 0 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 4;
+  }
+}
+
+.success-examples {
+  display: flex;
+  flex-direction: column;
+  h3.box-heading {
+    background-color: get-color('azure', 1);
+    color: white;
+    text-align: center;
+  }
+  .content-box {
+    display: flex;
+  }
+  .story-navigation {
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 1em;
+    margin-top: 1em;
+    flex: 1;
+    .item-wrapper {
+      margin-bottom: 1em;
+      .inner {
+        position: relative;
+        display: block;
+      }
+      img {
+        position: relative;
+        z-index:0;
+        -webkit-filter: grayscale(90%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(90%);
+      }
+      p {
+        position: absolute;
+        bottom: 0;
+        z-index:100;
+        width:100%;
+        background-color: rgba(255,255,255,0.9);
+        margin-bottom: 0;
+        padding: 1em 0;
+        font-family: $font-headings;
+        text-align: center;
+        text-transform: capitalize;
+      }
+      &.active {
+        img {
+          -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+          filter: grayscale(0%);
+        }
+        .inner:after {
+          width:auto;
+          font-family: 'fontawesome';
+          display: block;
+          content: '\f0da';
+          position: absolute;
+          right:-2rem;
+          top:30%;
+          color: white;
+          font-size: 3em;
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .active-story {
+    padding-left: 2em;
+    h3 {
+      text-align: left;
+    }
+    flex: 4;
+    .content {
+      display: flex;
+      .main-text {
+        flex: 6;
+        padding-right: 2em;
+      }
+      .highlight-text {
+        flex: 3;
+        font-weight: bold;
+        color: get-color('azure', 3);
+      }
+    }
+  }
+}

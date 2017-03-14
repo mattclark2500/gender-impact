@@ -1,0 +1,17 @@
+@import '../utils/_colors.scss';
+
+.topic-header {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em;
+  h1, h2, h3, h4, h5, h6, p {
+    color:white;
+    text-align: center;
+  }
+  p {
+    margin-bottom: 1em;
+    font-size: modular-scale(1);
+  }
+  background: get-color('blue',3,1) url('../ui/images/seigaiha.png') fixed;
+}

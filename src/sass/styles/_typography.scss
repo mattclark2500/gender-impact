@@ -1,0 +1,81 @@
+/* Font Families */
+
+body  {
+  font-family: $font-body;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-headings;
+}
+
+/* Responsive Typography */
+body {
+  font-size: 100%;
+}
+
+/* Font Sizes */
+
+h1 {
+  font-size: modular-scale(4);
+}
+
+h2 {
+  font-size: modular-scale(3);
+}
+
+h3 {
+  font-size: modular-scale(2);
+}
+
+h4, h5, h6 {
+  font-size: modular-scale(0);
+}
+
+p {
+  font-size: modular-scale(0);
+}
+
+/* Line Heights */
+h1 {
+  line-height: $base-line-height * 2 / ((strip-unit(modular-scale(4)*$base-font-size))) + em;
+  margin-bottom: $base-line-height / ((strip-unit(modular-scale(4)*$base-font-size))) + em;
+}
+
+h2 {
+  line-height: $base-line-height * 2 / ((strip-unit(modular-scale(3)*$base-font-size))) + em;
+  margin-bottom: $base-line-height / ((strip-unit(modular-scale(3)*$base-font-size))) + em;
+}
+
+h3 {
+  line-height: $base-line-height * 2 / ((strip-unit(modular-scale(2)*$base-font-size))) + em;
+  margin-bottom: 0;
+}
+
+h4 {
+  line-height: $base-line-height / ((strip-unit(modular-scale(0)*$base-font-size))) + em;
+}
+
+h5, h6 {
+  line-height: $base-line-height / ((strip-unit(modular-scale(0)*$base-font-size))) + em;
+  margin-bottom: 0;
+}
+
+p {
+  line-height: $base-line-height / ((strip-unit(modular-scale(0)*$base-font-size))) + em;
+  margin-bottom: $base-line-height / ((strip-unit(modular-scale(0)*$base-font-size))) + em;
+}
+
+/* Font Styles */
+h1, h2 {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Modifiers */
+.highlight {
+  font-weight: bold;
+}
+
+.xxl {
+  font-size: 300%;
+}

@@ -1,0 +1,72 @@
+@mixin hero($bg-image) {
+  background: url("/assets/images/photos/#{$bg-image}-sm_x1.jpg") no-repeat fixed right bottom;
+  @include hidpi(1.5) {
+    background: url("/assets/images/photos/#{$bg-image}-sm_x2.jpg") no-repeat fixed left bottom;
+    background-size: cover;
+  }
+  min-height: 414px;
+  width:100vw;
+  padding-top: 8em;
+  box-sizing: border-box;
+
+  & > .container {
+
+  }
+  .site-title.first {
+
+  }
+  .site-title.second {
+    animation-delay: 1s;
+  }
+
+  .site-title {
+    font-weight: 100;
+    text-align: center;
+    color: white;
+    text-shadow: get-color('grey',5) 2px 2px 8px;
+    margin-bottom: 0;
+  }
+  .site-title.small {
+    font-size: modular-scale(0);
+    margin-bottom: 0.5em;
+    @include media ('735px') {
+      font-size: modular-scale(2);
+    }
+    color: get-color('grey',1);
+
+    @include media ($bp-medium) {
+
+    }
+  }
+  .site-title.large {
+    font-size: modular-scale(5);
+  }
+  .site-title.bold {
+    font-weight: 500;
+  }
+
+  @include media ('767px') {
+    padding-top:10em;
+    font-size:150%;
+    background: url("/assets/images/photos/#{$bg-image}-md_x1.jpg") no-repeat fixed left bottom;
+    background-size: 768px 1024px;
+    min-height:768px;
+    @include hidpi(1.5) {
+      background: url("/assets/images/photos/#{$bg-image}-md_x2.jpg") no-repeat fixed left bottom;
+    }
+  }
+
+  @include media ('1024px') {
+    padding-top: 8.5em;
+    background: url("/assets/images/photos/#{$bg-image}-lg_x1.jpg") no-repeat fixed left bottom;
+    min-height:100vh;
+    @include hidpi(1.5) {
+      background: url("/assets/images/photos/#{$bg-image}-lg_x2.jpg") no-repeat fixed left bottom;
+      background-size: cover;
+    }
+  }
+
+  @include media ('2048px') {
+    background-size: cover;
+  }
+}

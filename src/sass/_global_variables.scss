@@ -1,0 +1,53 @@
+/* Typography */
+$font-body: 'Open Sans', Helvetica, Roboto, Arial, sans-serif;
+$font-headings: 'Oswald', Tahoma, Verdana, Arial, sans-serif;
+
+$base-font-size: 16; // 16px
+$base-line-multiplier: 1.5;
+$base-line-height: $base-font-size * $base-line-multiplier; // 24px / 16px
+
+/* Colors */
+/* Please use get-color function for page colours. The colors defined here are highlight colors for special purposes like alerts and warnings */
+
+$warning-1: #ed1c24;
+$warning-2: #f8a9ac;
+$alert-1: #ff9700;
+$alert-2: #ffd89f;
+$success-1: #7ac943;
+$success-2: #cdebb8;
+
+$default-box-shadow: 5px 5px 5px get-color('grey',5);
+
+/* Scaffolding */
+$padding-default: 1.5rem;
+$margin-default: 1.5rem;
+
+/* Breakpoints */
+// Small screens
+$bp-small-minor-0: 30em; //480px
+$bp-small-minor-1: 40em; //640px
+$bp-small: 48em; // 768px Max resolution for small breakpoint
+
+$bp-medium-minor-0: 52em; //832px
+$bp-medium-minor-1: 60em; //960px
+$bp-medium: 64em; // 1024px Max resolution for medium breakpoint
+
+$bp-large-minor-0: 68em; // 1088px
+$bp-large-minor-1: 70em; // 1120px
+$bp-large: 75em; // 1200px Max resolution for large breakpoint
+
+$bp-x-large-minor-0: 80em; //1280px
+$bp-x-large-minor-1: 85em; //1360px
+$bp-x-large: 90em; // 1440px
+
+$bp-xx-large: 100em; // 1600px;
+
+/* Pizazz */
+$border-radius-sm: 3px;
+$border-radius-lg: 10px;
+
+/* Transitions */
+$transition-short: 0.2s;
+$transition-medium: 0.5s;
+$transition-long: 1s;
+$transition-x-long: 2s;

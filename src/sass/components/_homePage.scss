@@ -1,0 +1,91 @@
+.home-page-container {
+  background-image: url('/ui/images/home/bg.svg');
+  background-size: cover;
+  min-height: 100vh;
+  width: 100vw;
+  .nav-items {
+    padding:6em 1em 1em 1em;
+    .item {
+      padding:4em 1em;
+      margin-bottom: 1em;
+      background-color: rgba(255,255,255,0.8);
+      text-align: center;
+      background-size: contain;
+      background-position:top center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      a {
+        font-family: $font-headings;
+        color: get-color('grey',5);
+        display: block;
+        width: 100%;
+        height:100%;
+      }
+      &.food-and-nutritional-security {
+        background-image:url('/ui/images/home/sprite-02.png');
+      }
+      &.water-and-governance-of-water {
+        background-image:url('/ui/images/home/sprite-04.png');
+      }
+      &.time-poverty {
+        background-image:url('/ui/images/home/sprite-01.png');
+      }
+      &.access-to-resources {
+        background-image:url('/ui/images/home/sprite-03.png');
+      }
+      &.leadership {
+        background-image:url('/ui/images/home/sprite-06.png');
+      }
+      &.gender-groups-at-risk {
+        background-image:url('/ui/images/home/sprite-05.png');
+      }
+    }
+    @include media($bp-medium) {
+      position:absolute;
+      width:100%;
+      height:100%;
+      .item {
+        background-color: transparent;
+        background-size: contain;
+        position: absolute;
+        width:15em;
+        height:15em;
+        padding:0;
+        margin: 0;
+        display: block;
+        a {
+          position: absolute;
+          bottom:-10em;
+          width: 100%;
+        }
+        &.food-and-nutritional-security {
+          top:15%;
+          left:10%;
+
+        }
+        &.water-and-governance-of-water {
+          bottom:20%;
+          left:40%;
+
+        }
+        &.time-poverty {
+          bottom:10%;
+          left:5%;
+        }
+        &.gender-groups-at-risk {
+          top:15%;
+          right:40%;
+        }
+        &.access-to-resources {
+          top:15%;
+          right:10%;
+        }
+        &.leadership {
+          bottom:15%;
+          right:10%;
+
+        }
+      }
+    }
+  }
+}

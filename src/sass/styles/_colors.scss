@@ -1,0 +1,67 @@
+body {
+  background-color:get-color('grey',0);
+  @include texture(0, get-color('grey',0), get-color('grey',0), 48, 0);
+  background-attachment: fixed;
+}
+
+/* Headings */
+
+h1 {
+  color: get-color('blue', 3);
+}
+
+h2 {
+  color: get-color('blue', 3);
+}
+
+/* Body */
+
+p, ul, ol {
+  color: get-color('grey', 4);
+}
+
+/* Links */
+
+// Defaults
+a {
+  color: get-color('orange', 2);
+}
+
+a:hover {
+  color: get-color('orange', 3);
+}
+
+a:active {
+  color: red;
+}
+
+a:visited {
+  color: get-color('green', 3);
+}
+
+a.ui-anchor.default {
+  color: white;
+}
+
+.container {
+  background-color: get-color('grey',0);
+}
+
+.block.dark {
+  background-color: get-color('grey',1);
+}
+
+.block.light {
+  background-color: get-color('grey',0);
+}
+
+.block.inverted {
+  background-color: get-color('grey', 5);
+  h1, h2, h3, h4, h5, h6 {
+    color:white;
+  }
+  p {
+    color: get-color('grey',1,1);
+  }
+}
+
