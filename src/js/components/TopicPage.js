@@ -20,10 +20,12 @@ class TopicPage extends Component {
             topicTitle
         } = this.props;
         return (
-            <div>
+            <div className="page-container">
                 <Menu topics={topics} sectionTitle={sectionTitle} topicTitle={topicTitle} currentTopic={params.currentTopic} changeTopic={changeTopic} />
                 <HeroImage imageLocation={params.currentTopic}/>
-                <Description text={description}/>
+                <div className="topic-header">
+                    <Description text={description}/>
+                </div>
                 <SubTopicContainer />
             </div>
         )

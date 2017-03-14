@@ -1,28 +1,41 @@
 import React, { PropTypes } from 'react';
+import renderHTML from 'react-render-html';
+import StoryNavigationItem from './StoryNavigationItem';
 
-const ExampleBox  = ({ stories, changeStoryActiveState, subTopicIndex }) => {
+const ExampleBox  = (props) => {
+
+    const { stories } = props;
 
     const displayActiveStory = () => {
-        const something = stories.filter(story => story.active === true).map((story, index) => (
-            <div key={index}>
-                <h1>{story.title}</h1>
-                <p>{story.mainText}</p>
-                <p>{story.highlightText}</p>
-            </div>
+        return stories.filter(story => story.active === true).map((story, index) => {
+            return (
+                <div key={index} className="active-story">
+                    <h3>{story.title}</h3>
+                    <div className="content">
+                        <div className="main-text">{renderHTML(story.mainText)}</div>
+                        <p className="highlight-text">{story.highlightText}</p>
+                    </div>
+                </div>
+            )
+        });
+    };
+
+    const storyNavigation = () => {
+        return stories.map((story, index) => (
+            <StoryNavigationItem key={index} story={story} index={index} {...props} />
         ));
-        return something;
     };
 
     if (stories.length > 0) {
         return (
-            <div>
-                <h1>Successful Examples</h1>
-                <ul>
-                {stories.map((story, index) => (
-                    <li key={index} onClick={() => changeStoryActiveState(index, subTopicIndex)}>{story.country}</li>
-                ))}
-                </ul>
-                {displayActiveStory()}
+            <div className="success-examples">
+                <h3 className="box-heading">Successful Examples</h3>
+                <div className="content-box">
+                    <div className="story-navigation">
+                        {storyNavigation()}
+                    </div>
+                    {displayActiveStory()}
+                </div>
             </div>
         )
     }
@@ -32,7 +45,8 @@ const ExampleBox  = ({ stories, changeStoryActiveState, subTopicIndex }) => {
 ExampleBox.proptypes = {
     changeStoryActiveState: PropTypes.func.isRequired,
     stories: PropTypes.array.isRequired,
-    subTopicIndex: PropTypes.number.isRequired
-}
+    subTopicIndex: PropTypes.number.isRequired,
+    imageLocation: PropTypes.string.isRequired
+};
 
 export default ExampleBox;

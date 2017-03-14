@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 
-import Home from './components/Home.js';
-import TopicContainer from './containers/TopicContainer';
+import HomeContainer from './js/containers/HomeContainer.js';
+import TopicContainer from './js/containers/TopicContainer';
 
 class App extends Component {
 
@@ -14,7 +14,7 @@ class App extends Component {
 
         return (
             <Router history={browserHistory}>
-                <Route path="/" component={Home}/>
+                <Route path="/" component={HomeContainer}/>
                 <Route path="/topic/:currentTopic" component={TopicContainer}/>
             </Router>
         );

@@ -11,10 +11,10 @@ const stories = (state = defaultState, action) => {
             return action.stories;
 
         case UPDATE_STORY_STATUS:
-            const test = state.map((stories, index) => {
-                if (action.subTopicIndex == index) {
+            return state.map((stories, index) => {
+                if (action.subTopicIndex === index) {
                     return stories.map((story, index) => {
-                        const activeState = (action.storyIndex == index) ? { active: true } : { active: false };
+                        const activeState = (action.storyIndex === index) ? { active: true } : { active: false };
                         return Object.assign({}, story, activeState)
                     })
                 }

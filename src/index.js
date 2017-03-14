@@ -6,8 +6,8 @@ import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 
 import App from './App';
-import reducer from './reducers';
-import { rootSaga } from './sagas';
+import reducer from './js/reducers';
+import { rootSaga } from './js/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 

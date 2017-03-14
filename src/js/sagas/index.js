@@ -12,6 +12,7 @@ function* setTopicDataSaga() {
     try {
         const state = yield(select());
         const fileContents = yield readFile(`/content/${state.currentTopic.key}/content.json`);
+
         const data = {
             title: fileContents.data.title,
             description: fileContents.data.description,

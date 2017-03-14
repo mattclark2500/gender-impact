@@ -5,7 +5,8 @@ import { changeStoryActiveState } from '../actions';
 
 const mapStateToProps = (state) => ({
     lessonsLearnt: state.currentTopic.lessonsLearnt,
-    subtopics: state.subtopics
+    subtopics: state.subtopics,
+    imageLocation: state.currentTopic.key
 });
 
 const mapDispatchToProps = (dispatch) => ({

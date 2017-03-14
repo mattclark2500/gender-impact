@@ -22,7 +22,10 @@ class SubTopics extends Component {
 
     subTopicNavigation() {
         try {
-            return this.props.subtopics.map((subtopic, index) => <li key={index} onClick={() => this.handleClickEvent(index)}>{subtopic.title}</li>);
+            return this.props.subtopics.map(function(subtopic, index) {
+                const activeClass = (subtopic.active) ? 'active' : 'inactive';
+                return <li key={index} onClick={() => this.handleClickEvent(index)} className={activeClass}><img src={`/content/${this.props.imageLocation}/images/${index}/subTopicButton.png`} role="presentation"/><p>{subtopic.title}</p></li>;
+            }.bind(this));
         } catch (e) {
             console.warn('An error: ', e);
         }
@@ -34,13 +37,6 @@ class SubTopics extends Component {
 
     render() {
         const swiperParameters = {
-            pagination: '.swiper-pagination',
-            paginationClickable: true,
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-            prevButtonCustomizedClass: 'customized-prev',
-            nextButtonCustomizedClass: 'customized-next',
-            paginationCustomizedClass: 'customized-pagination',
             containerClass: 'swiper-container customized-swiper-container',
             onInit: (swiper) => {
                 this.swiper = swiper;
@@ -55,13 +51,13 @@ class SubTopics extends Component {
         if (this.props.subtopics.length > 0) { // Wait for redux store to completely update before returning react element, otherwise return null
             return (
                 <div>
-                    <ul>
-                        <li key='lessons-learnt' onClick={() => this.handleClickEvent(-1)}>Lessons Learnt</li>
+                    <ul className="subTopic-navigation">
+                        <li key='lessons-learnt' onClick={() => this.handleClickEvent(-1)}><img src="/ui/images/lessons-learnt.png" role="presentation" /><p>Lessons Learnt</p></li>
                         {this.subTopicNavigation()}
                     </ul>
                     <Swiper {... swiperParameters}>
-                        <LessonsLearntSlide key="lessons-learnt" lessonsLearnt={this.props.lessonsLearnt} />
-                        {this.props.subtopics.map((subtopic, index) => <SubTopicSlide key={index} {...subtopic} subTopicIndex={index} />)}
+                        <LessonsLearntSlide key="lessons-learnt" lessonsLearnt={this.props.lessonsLearnt} imageLocation={this.props.imageLocation} />
+                        {this.props.subtopics.map((subtopic, index) => <SubTopicSlide key={index} {...subtopic} imageLocation={this.props.imageLocation} subTopicIndex={index} />)}
                     </Swiper>
                 </div>
             )
@@ -75,7 +71,8 @@ SubTopics.propTypes = {
     changeSubTopicActiveState: PropTypes.func.isRequired,
     changeStoryActiveState: PropTypes.func.isRequired,
     lessonsLearnt: PropTypes.array,
-    subtopics: PropTypes.array.isRequired
+    subtopics: PropTypes.array.isRequired,
+    imageLocation: PropTypes.string.isRequired
 };
 
 export default SubTopics;
